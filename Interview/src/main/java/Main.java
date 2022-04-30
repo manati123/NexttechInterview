@@ -1,6 +1,9 @@
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Helo");
+        IBank bank = new Bank();
+        IService service = new Service(bank);
+        iUI ui = new UI(service);
+        ui.run();
     }
 }

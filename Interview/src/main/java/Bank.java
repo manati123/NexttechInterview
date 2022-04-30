@@ -1,16 +1,23 @@
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
 @NoArgsConstructor
+@Getter
+@Setter
 public class Bank implements IBank{
 //    ArrayList<Account> accounts;
     HashMap<String, Account> accounts;
     ArrayList<Action> actions;
     public void addAccount(Account newAccount) {
         this.accounts.put(newAccount.IBAN, newAccount);
+    }
+    public HashMap<String,Account> getAccounts(){
+        return this.accounts;
     }
 
     public void sendMoney(String senderIBAN, String receiverIBAN, double ammount) throws Exception {
@@ -30,4 +37,5 @@ public class Bank implements IBank{
         }
         return result;
     }
+
 }
